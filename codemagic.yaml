@@ -1,8 +1,12 @@
 workflows:
   android-workflow:
-    name: Web Screen App
-    
-      - name: Web Screen
+    name: Build Android APK
+    environment:
+      vars:
+        JAVA_VERSION: 11  # Set the Java version if needed
+
+    scripts:
+      - name: Build APK
         script: |
           ./gradlew assembleDebug
 
