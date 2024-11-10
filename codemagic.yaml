@@ -2,11 +2,8 @@ workflows:
   android-workflow:
     name: Build Android APK
     environment:
-      android:
-        build: gradle
       vars:
-        # Specify the Android SDK version if required
-        JAVA_VERSION: 11
+        JAVA_VERSION: 11  # Set the Java version if needed
 
     scripts:
       - name: Install dependencies
