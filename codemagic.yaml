@@ -1,5 +1,18 @@
 workflows:
   android-workflow:
     name: Build Android APK
+    environment:
+      vars:
+        JAVA_VERSION: 11
+
+    scripts:
+      - name: Install dependencies
+        script: |
+          ./gradlew dependencies
+
+      - name: Build APK
+        script: |
+          ./gradlew assembleDebug
+
     artifacts:
-      - build/outputs/**/*.apk
+      - app/build/outputs/apk/debug/app-debug.apk  # Adjusted artifact path
