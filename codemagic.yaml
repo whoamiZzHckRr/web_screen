@@ -3,16 +3,12 @@ workflows:
     name: Build Android APK
     environment:
       vars:
-        JAVA_VERSION: 11
+        JAVA_VERSION: 8  # Use Java 8 for better compatibility with Gradle 6.1.1
 
     scripts:
-      - name: Install dependencies
-        script: |
-          ./gradlew dependencies
-
       - name: Build APK
         script: |
-          ./gradlew assembleDebug
+          ./gradlew assembleDebug  # Build the APK, this will install dependencies as needed
 
     artifacts:
-      - app/build/outputs/apk/debug/app-debug.apk  # Adjusted artifact path
+      - app/build/outputs/apk/debug/app-debug.apk
